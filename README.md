@@ -15,16 +15,20 @@ Here's how.
 
 ```shell
 # Run Docker in Docker
-docker run --privileged -it --name dind -d docker:dind 
+docker run --privileged --name dind -d docker:dind 
 
 # Exec into the container, which is based on Alpine
 docker exec -it dind /bin/ash
-In the container
+```
+
+## In the container
+
+```shell
 # Add build dependencies
 apk update && apk add git make bash
 
 # Clone DCSO/MISP-dockerized
-git clone https://github.com/dcso/misp-dockerized
+git clone https://github.com/dcso/misp-dockerized.git
 
 # Change to the new directory
 cd misp-dockerized
